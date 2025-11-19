@@ -40,7 +40,7 @@ function executeSearch() {
   resultArea.innerHTML = result
     .map(item =>
       `<div class="resultItem">
-         <strong>${item.name}</strong>（${item.yomi}）  
+         <strong>${item.name}</strong>(${item.yomi})
          <br>電報略号：<span class="abbr">${item.abbr}</span>
        </div>`
     )
