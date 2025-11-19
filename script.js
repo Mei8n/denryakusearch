@@ -9,9 +9,16 @@ fetch("data.csv")
 
 //CSV を配列に変換
 function parseCSV(text) {
-  const lines = text.trim().split("\n");
+  text = text.replace(/^\uFEFF/, "");
+  const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
   return lines.map(line => {
-    const [abbr, name, yomi] = line.split(",");
+    const parts = line.split(",");
+    while (parts.length < 3) {
+      parts.push("");
+    }
+    const abbr = parts[0].trim();
+    const name = parts[1].trim();
+    const yomi = parts[2].trim();
     return { abbr, name, yomi };
   });
 }
