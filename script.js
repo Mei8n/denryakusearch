@@ -16,8 +16,8 @@ function parseCSV(text) {
   });
 }
 
-// --- 検索処理 ---
-document.getElementById("searchBox").addEventListener("input", () => {
+// --- Enterキー または ボタン押下で検索 ---
+function executeSearch() {
   const keyword = document.getElementById("searchBox").value.trim();
   const resultArea = document.getElementById("resultArea");
 
@@ -32,7 +32,6 @@ document.getElementById("searchBox").addEventListener("input", () => {
     item.yomi.includes(keyword)
   );
 
-  // 結果を表示
   if (result.length === 0) {
     resultArea.innerHTML = "<p>該当する駅がありません</p>";
     return;
@@ -46,4 +45,14 @@ document.getElementById("searchBox").addEventListener("input", () => {
        </div>`
     )
     .join("");
+}
+
+// --- ボタン押下 ---
+document.getElementById("searchButton").addEventListener("click", executeSearch);
+
+// --- Enterキー ---
+document.getElementById("searchBox").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    executeSearch();
+  }
 });
