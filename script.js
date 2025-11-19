@@ -7,7 +7,7 @@ fetch("data.csv")
     stations = parseCSV(text);
   });
 
-//CSV を配列に変換
+//CSVを配列に変換
 function parseCSV(text) {
   text = text.replace(/^\uFEFF/, "");
   const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
@@ -34,9 +34,9 @@ function executeSearch() {
   }
 
   const result = stations.filter(item =>
-    item.abbr.includes(keyword) ||
-    item.name.includes(keyword) ||
-    item.yomi.includes(keyword)
+    item.abbr === keyword ||
+    item.name === keyword ||
+    item.yomi === keyword
   );
 
   if (result.length === 0) {
