@@ -97,6 +97,20 @@ aside a:hover {
 	color: #0000ee;
 	text-decoration: underline;
 }
+#searchBox {
+  padding: 10px;
+  width: 80%;
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+#resultArea .resultItem {
+  background: #ffffff20;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
 footer {
 	font-size: 15px;
 	height: 100px;
