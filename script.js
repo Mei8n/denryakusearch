@@ -1,13 +1,13 @@
 let stations = [];
 
-// --- CSV を読み込む ---
+//CSVを読み込む
 fetch("data.csv")
   .then(response => response.text())
   .then(text => {
     stations = parseCSV(text);
   });
 
-// --- CSV を配列に変換 ---
+//CSV を配列に変換
 function parseCSV(text) {
   const lines = text.trim().split("\n");
   return lines.map(line => {
@@ -16,7 +16,7 @@ function parseCSV(text) {
   });
 }
 
-// --- Enterキー または ボタン押下で検索 ---
+//Enterまたはボタン押下で検索
 function executeSearch() {
   const keyword = document.getElementById("searchBox").value.trim();
   const resultArea = document.getElementById("resultArea");
@@ -47,10 +47,10 @@ function executeSearch() {
     .join("");
 }
 
-// --- ボタン押下 ---
+//ボタン押下
 document.getElementById("searchButton").addEventListener("click", executeSearch);
 
-// --- Enterキー ---
+//Enterキー
 document.getElementById("searchBox").addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     executeSearch();
