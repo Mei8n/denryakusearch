@@ -1,2 +1,3 @@
 # Denryaku_Search
 電報略号から駅名を検索する/駅名から電報略号を検索するツール
+https://mei8n.github.io/denryakusearch/
